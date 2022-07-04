@@ -2,6 +2,7 @@ import { ApolloServer } from "apollo-server";
 import { TracksApi } from "./modules/tracks/api/track.api";
 import { typeDefs } from "./modules/typesDefs"
 import { resolvers } from "./modules/resolvers";
+import { AlbumsApi } from "./modules/albums/api/album.api";
 const PORT = process.env || 4001
 
 const server = new ApolloServer({
@@ -11,7 +12,8 @@ const server = new ApolloServer({
     cache: 'bounded',
     dataSources:() => {
         return {
-            tracksApi: new TracksApi()
+            tracksApi: new TracksApi(),
+            albumsApi: new AlbumsApi()
         } 
     },
   });
