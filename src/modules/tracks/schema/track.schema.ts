@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-core"
 
-export const typeDefs = gql`
+export default gql`
 type Track {
     id: ID!
     title: String!

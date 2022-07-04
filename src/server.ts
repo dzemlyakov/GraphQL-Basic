@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server";
 import { TracksApi } from "./modules/tracks/api/track.api";
-import { typeDefs } from "./modules/tracks/schema/track.schema";
-import {resolvers} from './modules/tracks/resolvers/track.resolver';
+import { typeDefs } from "./modules/typesDefs"
+import { resolvers } from "./modules/resolvers";
 const PORT = process.env || 4001
 
 const server = new ApolloServer({
