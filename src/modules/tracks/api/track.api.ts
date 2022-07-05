@@ -8,7 +8,10 @@ export class TracksApi extends RESTDataSource {
 
    async getTracks() {
     const tracks = await this.get('/')
-
     return tracks.items
+   }
+   
+   async getTrack(id:string) {
+    return await this.get(`/${encodeURIComponent(id)}`)
    }
 }

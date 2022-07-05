@@ -8,7 +8,6 @@ export class AlbumsApi extends RESTDataSource {
 
    async getAlbums() {
     const albums = await this.get('/')
-
     return albums.items
    }
 }
