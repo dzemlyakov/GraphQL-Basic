@@ -12,5 +12,9 @@ type Artist {
     bands: [Band]
     instruments: String
 }
+extend type Query {
+    artists(limit:Int, offset:Int): [Artist]
+    artist(id:ID!): Artist
+}
 `
 

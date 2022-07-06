@@ -3,6 +3,7 @@ import { TracksApi } from "./modules/tracks/api/track.api";
 import { typeDefs } from "./modules/typesDefs"
 import { resolvers } from "./modules/resolvers";
 import { AlbumsApi } from "./modules/albums/api/album.api";
+import { ArtistsApi } from "./modules/artists/api/artist.api";
 const PORT = process.env || 4001
 
 const server = new ApolloServer({
@@ -13,7 +14,8 @@ const server = new ApolloServer({
     dataSources:() => {
         return {
             tracksApi: new TracksApi(),
-            albumsApi: new AlbumsApi()
+            albumsApi: new AlbumsApi(),
+            artistsApi: new ArtistsApi()
         } 
     },
   });
