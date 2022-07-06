@@ -8,4 +8,8 @@ type Genre {
     country: String
     year: Int
 }
+extend type Query {
+    genres(limit:Int, offset:Int): [Genre]
+    genre(id:ID!): Genre
+}
 `
