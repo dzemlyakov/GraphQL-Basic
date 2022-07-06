@@ -4,6 +4,7 @@ import { typeDefs } from "./modules/typesDefs"
 import { resolvers } from "./modules/resolvers";
 import { AlbumsApi } from "./modules/albums/api/album.api";
 import { ArtistsApi } from "./modules/artists/api/artist.api";
+import { BandsApi } from "./modules/bands/api/band.api";
 const PORT = process.env || 4001
 
 const server = new ApolloServer({
@@ -15,7 +16,8 @@ const server = new ApolloServer({
         return {
             tracksApi: new TracksApi(),
             albumsApi: new AlbumsApi(),
-            artistsApi: new ArtistsApi()
+            artistsApi: new ArtistsApi(),
+            bandsApi: new BandsApi()
         } 
     },
   });

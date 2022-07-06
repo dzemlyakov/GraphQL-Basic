@@ -14,5 +14,10 @@ type Member {
   instrument: String
   years: String
 }
+extend type Query {
+    bands(limit:Int, offset:Int): [Band]
+    band(id:ID!): Band
+}
+
 `
 
