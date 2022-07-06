@@ -10,4 +10,7 @@ export class AlbumsApi extends RESTDataSource {
     const albums = await this.get('/')
     return albums.items
    }
+   async getAlbum(id:string) {
+    return await this.get(`/${encodeURIComponent(id)}`)
+   }
 }
