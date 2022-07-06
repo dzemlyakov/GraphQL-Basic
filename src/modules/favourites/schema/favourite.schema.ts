@@ -9,4 +9,7 @@ type Favourites {
     artists: [Artist]
     tracks: [Track]
 }
+extend type Query {
+    favourites: Favourites
+}
 `
