@@ -9,5 +9,10 @@ export default {
     },
     Genre: {
         id:(parent:any) => parent._id
+    },
+    Mutation:{
+        createGenre:(parent, {input}, {dataSources}) =>{
+            return dataSources.genresApi.createGenre(input)
+        }
     }    
 }
