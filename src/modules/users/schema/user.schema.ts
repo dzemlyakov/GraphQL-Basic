@@ -11,9 +11,21 @@ type User {
 type JWT {
   jwt: String!
 }
+
+input UserInput {
+  firstName: String!
+  lastName: String!
+  password: String!
+  email: String!
+}
+
 extend type Query {
   jwt(email: String!, password: String!): JWT
   user(id: ID!): User
+}
+
+type Mutation {
+  register(input: UserInput!): User
 }
 `
 
