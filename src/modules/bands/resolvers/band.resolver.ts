@@ -31,7 +31,7 @@ export default {
           return dataSources.bandsApi.createBand(input);
         },
         updateBand: async (parent, { id, input }, { dataSources }) => {
-          return dataSources.bandsApi.updateArtist(id, input);
+          return dataSources.bandsApi.updateBand(id, input);
         },
         deleteBand: async (parent, { id }, { dataSources }) => {
           return dataSources.bandsApi.deleteBand(id);

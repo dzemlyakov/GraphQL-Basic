@@ -21,7 +21,7 @@ export default {
       return dataSources.artistsApi.updateArtist(id, input);
     },
     deleteArtist: async (parent, { id }, { dataSources }) => {
-      return dataSources.artistsApi.delete(id);
+      return dataSources.artistsApi.deleteArtist(id);
     }
   }
 };
