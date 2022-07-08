@@ -1,3 +1,4 @@
+
 export default {
     Query: {
         genres: async (parent:any, args:any, {dataSources}:any) => {
@@ -16,6 +17,9 @@ export default {
         },
         updateGenre:(parent, {id, input}, {dataSources})=>{
             return dataSources.genresApi.updateGenre(id, input)
+        },
+        deleteGenre:(parent, args, {dataSources})=>{
+            return dataSources.genresApi.deleteGenre(args.id)
         }
     }    
 }

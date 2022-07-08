@@ -27,4 +27,8 @@ export class GenresApi extends RESTDataSource {
     const genre = this.put(`/${encodeURIComponent(id)}`, data)
     return genre
   }
+
+  async deleteGenre(id){
+    return await this.delete(`/${encodeURIComponent(id)}`)
+  }
 }

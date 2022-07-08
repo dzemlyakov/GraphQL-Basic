@@ -8,6 +8,10 @@ type Genre {
     country: String
     year: Int
 }
+type DeleteItem {
+    acknowledged: Boolean
+    deletedCount: Int
+}
 input GenreInput {
     name: String!
     description: String
@@ -27,5 +31,6 @@ extend type Query {
 extend type Mutation {
     createGenre(input: GenreInput!): Genre
     updateGenre(id: ID!, input: GenreInputUpdate!): Genre
+    deleteGenre(id: ID!): DeleteItem
 }
 `
