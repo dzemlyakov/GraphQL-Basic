@@ -10,9 +10,17 @@ type Band {
     genres: [Genre]
 }
 type Member {
-  artist: String
+  id: ID!
+  firstName: String
+  secondName: String
+  middleName: String
   instrument: String
-  years: String
+  years: [String]
+}
+input MemberInput {
+  id: ID!
+  instrument: String
+  years: [String]
 }
 extend type Query {
     bands(limit:Int, offset:Int): [Band]
