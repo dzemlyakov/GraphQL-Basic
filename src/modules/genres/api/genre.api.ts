@@ -22,4 +22,9 @@ export class GenresApi extends RESTDataSource {
     const genre = this.post('', data)
     return genre
   }
+
+  async updateGenre(id, data){
+    const genre = this.put(`/${encodeURIComponent(id)}`, data)
+    return genre
+  }
 }

@@ -13,6 +13,9 @@ export default {
     Mutation:{
         createGenre:(parent, {input}, {dataSources}) =>{
             return dataSources.genresApi.createGenre(input)
+        },
+        updateGenre:(parent, {id, input}, {dataSources})=>{
+            return dataSources.genresApi.updateGenre(id, input)
         }
     }    
 }
