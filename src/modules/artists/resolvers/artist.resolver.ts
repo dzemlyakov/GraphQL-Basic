@@ -9,6 +9,9 @@ export default {
   },
   Artist: {
     id: (parent: any) => parent._id,
+    bands: (parent, args, {dataSources}) => {
+        return parent.bandsIds.map((id) => dataSources.bandsApi.getBand(id)) 
+    }
   },
   Mutation: {
     createArtist: async (parent, { input }, { dataSources }) => {
