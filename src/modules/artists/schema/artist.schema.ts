@@ -38,7 +38,7 @@ extend type Query {
 }
 extend type Mutation {
     createArtist(input: ArtistInput!): Artist
-    updateArtist(id: ID!, input:ArtistInputUpdate): Artist
+    updateArtist(id: ID!, input:ArtistInputUpdate!): Artist
     deleteArtist(id: ID!): DeleteItem
 }
 `

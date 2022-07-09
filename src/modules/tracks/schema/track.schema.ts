@@ -18,7 +18,7 @@ type Query {
 }
 input TrackInput {
     title: String!
-    # albumId: ID
+    albumId: ID
     artistsIds: [ID]
     bandsIds: [ID]
     duration: Int
@@ -27,7 +27,7 @@ input TrackInput {
 }
 input TrackInputUpdate {
     title: String
-    # albumId: ID
+    albumId: ID
     artistsIds: [ID]
     bandsIds: [ID]
     duration: Int
@@ -36,7 +36,7 @@ input TrackInputUpdate {
 }
 extend type Mutation {
     createTrack(input: TrackInput!): Track
-    updateTrack(id: ID!, input:TrackInputUpdate): Track
+    updateTrack(id: ID!, input:TrackInputUpdate!): Track
     deleteTrack(id: ID!): DeleteItem
 }
 `

@@ -17,6 +17,9 @@ export default {
     },
     artists: (parent, args, { dataSources }) => {
         return parent.artistsIds.map((id) => dataSources.artistsApi.getArtist(id));
+    },
+    album: (parent, args, { dataSources }) => {   
+      return dataSources.albumsApi.getAlbum(parent.albumId);
       }
   },
   Mutation: {
