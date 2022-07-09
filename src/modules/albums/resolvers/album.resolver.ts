@@ -19,8 +19,6 @@ export default {
       return parent.artistsIds.map((id) => dataSources.artistsApi.getArtist(id));
     },
     tracks: (parent, args, { dataSources }) => {
-    console.log("🚀 ~ parent", parent)
-      
       return parent.trackIds.map((id) => dataSources.tracksApi.getTrack(id));
     }
   },
