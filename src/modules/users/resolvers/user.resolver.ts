@@ -1,17 +1,17 @@
 export default {
   Query: {
-    jwt: (parent: any, args: any, { dataSources }: any) => {
+    jwt: (parent, args, { dataSources }) => {
       return dataSources.usersApi.login(args.email, args.password);
     },
-    user: (parent: any, args: any, { dataSources }: any) => {
+    user: (parent, args, { dataSources }) => {
       return dataSources.usersApi.getUser(args.id);
     }
   },
   User: {
-    id: (parent: any) => parent._id,
+    id: (parent) => parent._id,
   },
   Mutation: {
-    register: (parent: any, {input}:any, { dataSources }: any) => {
+    register: (parent, {input}, { dataSources }) => {
       return dataSources.usersApi.register(input);
     }
   }

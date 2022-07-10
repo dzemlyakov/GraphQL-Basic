@@ -1,14 +1,15 @@
 export default {
   Query: {
-    albums: async (parent: any, args: any, { dataSources }: any) => {
-      return dataSources.albumsApi.getAlbums();
+    albums: async (parent, args, { dataSources }) => {
+      const {offset, limit} = args
+      return dataSources.albumsApi.getAlbums(offset, limit);
     },
-    album: async (parent: any, args: any, { dataSources }: any) => {
+    album: async (parent, args, { dataSources }) => {
       return dataSources.albumsApi.getAlbum(args.id);
     }
   },
   Album: {
-    id: (parent: any) => parent._id,
+    id: (parent) => parent._id,
     bands: (parent, args, { dataSources }) => {
       return parent.bandsIds.map((id) => dataSources.bandsApi.getBand(id));
     },

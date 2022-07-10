@@ -1,14 +1,15 @@
 export default {
   Query: {
-    tracks: async (parent: any, args: any, { dataSources }: any) => {
-      return dataSources.tracksApi.getTracks();
+    tracks: async (paren, args, { dataSources }) => {
+      const {offset, limit} = args
+      return dataSources.tracksApi.getTracks(offset, limit);
     },
-    track: async (parent: any, args: any, { dataSources }: any) => {
+    track: async (parent, args, { dataSources }) => {
       return dataSources.tracksApi.getTrack(args.id);
     }
   },
   Track: {
-    id: (parent: any) => parent._id,
+    id: (parent) => parent._id,
     bands: (parent, args, { dataSources }) => {
       return parent.bandsIds.map((id) => dataSources.bandsApi.getBand(id));
     },

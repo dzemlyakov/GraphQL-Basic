@@ -1,15 +1,16 @@
 import {RequestOptions, RESTDataSource} from 'apollo-datasource-rest';
+import { LIMIT, OFFSET } from '../../../config/config';
 
 export class BandsApi extends RESTDataSource {
     constructor(){
         super();
-        this.baseURL = "http://localhost:3003/v1/bands"
+        this.baseURL = process.env.URL_BANDS || "http://localhost:3003/v1/bands"
     }
 willSendRequest(req: RequestOptions) {
         req.headers.set("Authorization", `Bearer ${this.context.token}`);
       }
-   async getBands() {
-    const bands = await this.get('/')
+   async getBands(offset = OFFSET, limit = LIMIT) {
+    const bands = await this.get("/",{offset, limit});
     return bands.items
    }
    
@@ -22,12 +23,12 @@ willSendRequest(req: RequestOptions) {
     return band;
   }
 
-  async updateBand(id, data) {
+  async updateBand(id:string, data) {
     const band = await this.put(`/${encodeURIComponent(id)}`, data);
     return band;
   }
 
-  async deleteBand(id) {
+  async deleteBand(id:string) {
     return this.delete(`/${encodeURIComponent(id)}`);
   }
 }

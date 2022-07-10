@@ -1,17 +1,18 @@
 import { RequestOptions, RESTDataSource } from "apollo-datasource-rest";
+import { LIMIT, OFFSET } from "../../../config/config";
 
 export class TracksApi extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = "http://localhost:3006/v1/tracks";
+    this.baseURL = process.env.URL_TRACKS || "http://localhost:3006/v1/tracks";
   }
 
   willSendRequest(req: RequestOptions) {
     req.headers.set("Authorization", `Bearer ${this.context.token}`);
   }
 
-  async getTracks() {
-    const tracks = await this.get("/");
+  async getTracks(offset = OFFSET, limit = LIMIT) {
+    const tracks = await this.get("/", {offset, limit});
     return tracks.items;
   }
 
@@ -24,12 +25,12 @@ export class TracksApi extends RESTDataSource {
     return track;
   }
 
-  async updateTrack(id, data) {
+  async updateTrack(id:string, data) {
     const track = await this.put(`/${encodeURIComponent(id)}`, data);
     return track;
   }
 
-  async deleteTrack(id) {
+  async deleteTrack(id:string) {
     return this.delete(`/${encodeURIComponent(id)}`);
   }
 }

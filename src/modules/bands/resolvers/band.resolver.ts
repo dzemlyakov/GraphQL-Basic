@@ -1,9 +1,10 @@
 export default {
     Query: {
-        bands: async (parent:any, args:any, {dataSources}:any) => {
-         return dataSources.bandsApi.getBands()   
+        bands: async (parent, args, {dataSources}) => {
+            const {offset, limit} = args
+            return dataSources.bandsApi.getBands(offset, limit)   
         },
-        band: async (parent:any, args:any, {dataSources}:any) => {
+        band: async (parent, args, {dataSources}) => {
             return dataSources.bandsApi.getBand(args.id)
         }
     },
@@ -11,7 +12,7 @@ export default {
         id:(parent) => parent._id
     },
     Band: {
-        id:(parent:any) => parent._id,
+        id:(parent) => parent._id,
         genres: (parent, args, {dataSources}) => {
             return parent.genresIds.map((id) => dataSources.genresApi.getGenre(id))
         },

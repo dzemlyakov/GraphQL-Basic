@@ -1,11 +1,11 @@
 export default {
   Query: {
-    favourites: async (parent: any, args: any, { dataSources }: any) => {
+    favourites: async (parent, args, { dataSources }) => {
       return dataSources.favouritesApi.getFavourites();
     }
   },
   Favourites: {
-    id: (parent: any) => parent._id,
+    id: (parent) => parent._id,
     bands: (parent, args, { dataSources }) => {
       return parent.bandsIds.map((id) => dataSources.bandsApi.getBand(id));
     },

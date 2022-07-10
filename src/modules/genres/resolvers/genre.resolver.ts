@@ -1,14 +1,15 @@
 export default {
   Query: {
-    genres: async (parent: any, args: any, { dataSources }: any) => {
-      return dataSources.genresApi.getGenres();
+    genres: async (parent, args, { dataSources }) => {
+      const {offset, limit} = args
+      return dataSources.genresApi.getGenres(offset, limit);
     },
-    genre: async (parent: any, args: any, { dataSources }: any) => {
+    genre: async (parent, args, { dataSources }) => {
       return dataSources.genresApi.getGenre(args.id);
     }
   },
   Genre: {
-    id: (parent: any) => parent._id
+    id: (parent) => parent._id
   },
   Mutation: {
     createGenre: (parent, { input }, { dataSources }) => {

@@ -38,5 +38,4 @@ export default gql`
     updateAlbum(id: ID!, input: AlbumInputUpdate!): Album
     deleteAlbum(id: ID!): DeleteItem
 }
-
 `;

@@ -10,7 +10,7 @@ type Favourites {
     tracks: [Track]
 }
 extend type Query {
-    favourites(offset: Int, limit: Int): Favourites
+    favourites: Favourites
 }
 extend type Mutation {
     addTrackToFavourites(TrackId: ID!): Favourites
