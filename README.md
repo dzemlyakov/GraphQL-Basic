@@ -9,27 +9,7 @@ You can find repository with microservices [here](https://github.com/rolling-sco
 
 The following entities exist:
 
-```typescript
-Artist  
-```
-```typescript
-User 
-```
-```typescript
-Band 
-```
-```typescript
-Genre 
-```
-```typescript
-Track
-```
-```typescript
-Album
-```
-```typescript
-Favourite 
-```
+`Artist`, `User`, `Band`, `Genre`, `Track`, `Album`, `Favourite` 
 
 **Details:**
 
